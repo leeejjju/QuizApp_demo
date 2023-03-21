@@ -1,18 +1,22 @@
 import 'package:day3/result.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'main.dart';
 
 //StatefulWidget
-class QuizMain extends StatelessWidget {
+class QuizMain extends StatefulWidget {
+  @override
+  State<QuizMain> createState() => _QuizMainState();
+}
 
-  // int _counter = 0;
-  //
-  // void _incrementCounter() {
-  //   setState(() {
-  //     _counter++;
-  //   });
-  // }
+class _QuizMainState extends State<QuizMain> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,54 +28,40 @@ class QuizMain extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            // Text(
-            //   'score : $_counter',
-            //   style: Theme.of(context).textTheme.headlineMedium,
-            // ),
+            Text(
+              'score : $_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
             ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 print("moving to quiz result page...");
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultPage()),
+                  MaterialPageRoute(builder: (context) => ResultPage(_counter)),
                 );
               },
-              child: Text(
-                  "SHOW RESULT"
-              ),
+              child: Text("SHOW RESULT"),
             ),
             OutlinedButton(
-              onPressed: (){
+              onPressed: () {
                 print("moving to main home...");
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MyApp()),
                 );
               },
-              child: Text(
-                  "BACK TO MAIN"
-              ),
+              child: Text("BACK TO MAIN"),
             ),
-
           ],
         ),
-
-
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: const Icon(Icons.add),
-      // ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
     );
   }
-
-  // @override
-  // State<StatefulWidget> createState() {
-  //   // TODO: implement createState
-  //   throw UnimplementedError();
-  // }
-
 }
 //
 // class QuizPage extends StatefulWidget {
