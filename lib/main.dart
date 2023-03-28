@@ -30,11 +30,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
+  String nyanCat =
+      "https://i0.wp.com/www.printmag.com/wp-content/uploads/2021/02/4cbe8d_f1ed2800a49649848102c68fc5a66e53mv2.gif?resize=476%2C280&ssl=1";
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -47,17 +46,24 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'Let\'s go to solve the Quiz!\n',
             ),
+            Image.network(nyanCat),
             ElevatedButton(
-                onPressed: (){
-                  print("moving to quiz home...");
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => QuizMain()),
-                  );
-                },
-                child: Text(
-                  "START"
-                ),
+              onPressed: () {
+                print("moving to quiz home...");
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => QuizHome()),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                  // textStyle: TextStyle(
+                  //   fontWeight: FontWeight.숫자(100~900)
+                  //   fontSize: 숫자)
+                  // 안쪽 패딩(여백)
+                  // padding: EdgeInsets.all(10),
+                  // 테두리
+                  ),
+              child: Text("START"),
             ),
           ],
         ),
