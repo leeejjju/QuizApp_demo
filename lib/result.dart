@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'main.dart';
-
 class ResultPage extends StatelessWidget {
   late final int _score;
 
@@ -28,12 +26,12 @@ class ResultPage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 print("moving to home...");
-                Navigator.push(
+                Navigator.popUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  ModalRoute.withName('/'),
                 );
               },
-              child: Text("BACK TO MAIN"),
+              child: const Text("BACK TO MAIN"),
             ),
           ],
         ),

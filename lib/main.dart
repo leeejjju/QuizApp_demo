@@ -44,26 +44,36 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Let\'s go to solve the Quiz!\n',
+              'Let\'s go to solve the Quiz!',
+              style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
             ),
-            Image.network(nyanCat),
-            ElevatedButton(
-              onPressed: () {
-                print("moving to quiz home...");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => QuizHome()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                  // textStyle: TextStyle(
-                  //   fontWeight: FontWeight.숫자(100~900)
-                  //   fontSize: 숫자)
-                  // 안쪽 패딩(여백)
-                  // padding: EdgeInsets.all(10),
-                  // 테두리
+            Image.network(
+              nyanCat,
+              height: 180,
+              width: 360,
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            SizedBox(
+              height: 70,
+              width: 210,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => QuizHome()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  textStyle: const TextStyle(
+                    fontFamily: 'Roboto', // 왜 반영 안되지ㅠ
+                    fontSize: 30,
+                    fontWeight: FontWeight.w700,
                   ),
-              child: Text("START"),
+                ),
+                child: const Text("START"),
+              ),
             ),
           ],
         ),

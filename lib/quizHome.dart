@@ -14,6 +14,7 @@ class _QuizHomeState extends State<QuizHome> {
   int qNum = 10; //number of question
   int _questionIndex = 0;
   int _score = 0;
+
   QuizData thisProblem = QuizData();
 
   /*
@@ -21,6 +22,14 @@ class _QuizHomeState extends State<QuizHome> {
   TODO 한놈한놈 임시변수 thisProblem에 담아서 로드하고싶음....
   TODO 근데 그 실행의 트리거를 어떻게 해야하지. 이전 페이지에서 start하면서 만들어 보내줫음 좋겟는데 어케보냄 파라미터
   */
+
+  @override
+  void initState() {
+    super.initState();
+    _createQuizSet();
+  }
+
+  void _createQuizSet() {}
 
   //check ans and up the score, mov to next question.
   void _toNextQuesion(bool correct) {
